@@ -1,0 +1,246 @@
+- 👋 Hi, I’m @UssWellerman
+- 👀 I’m interested in ...
+- 🌱 I’m currently learning ...
+- 💞️ I’m looking to collaborate on ...
+- 📫 How to reach me ...
+
+<!---
+UssWellerman/UssWellerman is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+Comprobando el sistema de archivos en D:
+El tipo del sistema de archivos es FAT32.
+
+
+Uno de los discos necesita ser comprobado para ver coherencias.
+Se puede cancelar la comprobación de disco, pero se recomienda
+que continúe.
+Windows comprobará ahora el disco.                                        
+El número de serie del volumen es FE96-0621
+
+Se examinó el sistema de archivos sin encontrar problemas.
+No se requieren más acciones.
+      7608512 KB de espacio total en disco.
+            4 KB en 1 archivos ocultos.
+          136 KB en 34 carpetas.
+      3544188 KB en 23 archivos.
+      4064180 KB están disponibles.
+
+         4096 bytes en cada unidad de asignación.
+      1902128 unidades de asignación en disco en total.
+      1016045 unidades de asignación disponibles en disco.
+
+
+Comprobando el sistema de archivos en D:
+El tipo del sistema de archivos es FAT32.
+
+
+Uno de los discos necesita ser comprobado para ver coherencias.
+Se puede cancelar la comprobación de disco, pero se recomienda
+que continúe.
+Windows comprobará ahora el disco.                                        
+El número de serie del volumen es FE96-0621
+
+Se examinó el sistema de archivos sin encontrar problemas.
+No se requieren más acciones.
+      7608512 KB de espacio total en disco.
+            4 KB en 1 archivos ocultos.
+          136 KB en 34 carpetas.
+      3531064 KB en 23 archivos.
+      4077304 KB están disponibles.
+
+         4096 bytes en cada unidad de asignación.
+      1902128 unidades de asignación en disco en total.
+      1019326 unidades de asignación disponibles en disco.
+
+/////////////////////////////////----------------------HTML-----------------------------/////////////////////////
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--LINK BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!--LINK SWEETALERT-->
+    <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+    <!--LINK GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--LINK DE LA FUENTE DE GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
+    <!--LINK DEL ARCHIVO CSS-->
+    <link rel="stylesheet" href="estilo.css">
+
+    <title>CALCULADORA</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>CALCULADORA</h1>
+        <hr>
+        <form>
+            <label>Número 1</label>
+            <input type="number" max="10000" min="0" placeholder="0" id="numero1" autofocus>
+            <label>Número 2</label>
+            <input type="number" max="10000" min=0   placeholder="0" id="numero2">
+            <hr>
+            <input type="button" class="btn btn-dark w-25" onclick="Sumar()" value="Sumar" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Restar()" value="Restar" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Multiplicar()" value="Multiplicar" required>
+            <hr>
+            <input type="button" class="btn btn-dark w-25" onclick="Division()" value="Division" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Potenciacion()" value="Potenciacion" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Concatenacion()" value="Concatenacion" required>
+            <hr>
+            <input type="button" class="btn btn-dark w-25" onclick="Instruccion_if()" value="Instruccion_if" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Instruccion_for()" value="Instruccion_for" required>
+            <input type="button" class="btn btn-dark w-25" onclick="Instruccion_switch()" value="Instruccion_switch" required>
+            <hr>
+        </form>
+    </div>
+    <!--EN ESTE DIV APARECERAN LOS RESULTADOS-->
+    <div id="Resultado" class="container"></div>
+    <script src="calculadora.js"></script>
+</body>
+</html>
+////-------------------------------------------------------------JAVASCRIPT---------------------------------//////
+// OBTENEMOS LA REFERENCIA AL DIV CON id=Resultado
+var R=document.getElementById("Resultado");
+// SE CREA FUNCION PARA CAMBIAR LAS PROPIEDADES DEL DIV CON id=Resultado
+function Propiedades (){
+    R.style.borderStyle="solid";
+    R.style.textAlign="center";
+    R.style.fontFamily="Dangrek";
+    R.style.fontSize="30px";
+}
+
+function Obtenervalores (){
+    // OBTENEMOS EL VALOR DEL INPUT TEXT CON  id=numero1
+    var n1=document.getElementById("numero1").value;
+    // POR OBTENERSE COMO VARIAABLE TIPO CADENA CONVERTIMOS A ENTERO DE BASE 10
+    n1=parseInt(n1,10);
+    // OBTENEMOS EL VALOR DEL INPUT TEXT CON  id=numero2
+    var n2=document.getElementById("numero2").value;
+    // POR OBTENERSE COMO VARIABLE TIPO CADENA CONVERTIMOS A ENTERO DE BASE 10
+    n2=parseInt(n2,10);
+    return[n1,n2];
+}
+
+function Sumar (){
+    // LLAMAR FUNCION OBTENERVALORES
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // PODEMOS USAR n1 y n2 EN LA FUNCION YA QUE SON VARIABLES GLOBALES
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La suma de los números es: "+(n1+n2);
+}
+
+function Restar (){
+    // LLAMAR FUNCION OBTENERVALORES
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La resta de los números es: "+(n1-n2);
+}
+
+function Multiplicar (){
+    // LLAMAR FUNCION OBTENERVALORES
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La multiplicación de los números es: "+(n1*n2);
+}
+
+function Division (){
+    // LLAMAR FUNCION OBTENERVALORES
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    if (n2===0)
+        d="Error: division por 0";
+    else
+        d=n1/n2;
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La division de los números es: "+(d);
+}
+
+function Potenciacion (){
+    // LLAMAR FUNCION OBTENERVALORES
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La potencia de los números es: "+(Math.pow(n1,n2));
+}
+
+function Concatenacion (){
+    // EXTRAEMOS LOS NUMEROS SIN CONVERTIRLOS A ENTERO PARA CONCATENARLOS
+    n1=document.getElementById("numero1").value;
+    n2=document.getElementById("numero2").value;
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="La concatenación de los números es: "+(n1+n2);
+}
+
+function Instruccion_if (){
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="Ejemplo con instrucción if usando sweetalert";
+    if (n1>n2){
+        swal("Mensaje","n1 es mayor a n2");
+}
+    else if (n1==n2){
+        swal("Mensaje","n1 es igual a n2", "success");
+    
+}
+    else{
+        swal({
+            title: "Mensaje",
+            text: "n1 es menor a n2",
+            icon: "info",
+            button: "Salir",
+        });
+    }
+}
+
+function Instruccion_for (){
+    [n1,n2]=Obtenervalores();
+    // LLAMAR FUNCION PROPIEDADES
+    Propiedades();
+    contador=0;
+    // USAMOS EL FOR (PARA)
+    for (i=n1;i<=n2;i++){
+        contador=contador+1;
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="Los ciclos que realizo el for fueron: "+contador;
+}
+
+function Instruccion_switch (){
+   [n1,n2]=Obtenervalores();
+   // LLAMAR FUNCION PROPIEDADES
+   Propiedades();
+    // DEJAMOS EL RESULTADO EN EL DIV QUE AHORA LO MANEJAMOS CON LA VARIABLE R
+    R.innerHTML="Ejemplo de instruccion switch usando sweetalert";
+    switch(n1){
+        case 1:
+            swal("Mensaje", "n1 tiene un valor de 1");
+            break;
+        case 2:
+            swal("Mensaje", "n1 tiene un valor de 2", "success");
+            break;
+        default:
+            swal({
+                title: "Mensaje",
+                text: "n1 tiene un valor mayor de 2",
+                icon: "info",
+                button: "Salir",
+            });
+            break;}
+        }
+}
